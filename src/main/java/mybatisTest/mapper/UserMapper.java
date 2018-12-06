@@ -45,7 +45,7 @@ public interface UserMapper {
 
     /**
      * 测试where多个条件
-     * @param conditions
+     * @param kv
      * @return
      * @throws Exception
      */
