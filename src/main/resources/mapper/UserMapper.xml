@@ -60,4 +60,10 @@
         select * from
         <include refid="table_name"/>
     </select>
+
+    <select id="selectTestWhere" parameterType="HashMap" resultType="map">
+        select ${keys} from
+        <include refid="table_name"/>
+        where ${conditions}
+    </select>
 </mapper>

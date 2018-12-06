@@ -2,7 +2,9 @@ package mybatisTest.mapper;
 
 import mybatisTest.po.User;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public interface UserMapper {
     /**
@@ -40,4 +42,12 @@ public interface UserMapper {
      * @throws Exception
      */
     public List<User> selectAllUser() throws Exception;
+
+    /**
+     * 测试where多个条件
+     * @param conditions
+     * @return
+     * @throws Exception
+     */
+    public Map selectTestWhere(HashMap<String, String> kv) throws Exception;
 }
