@@ -9,6 +9,10 @@ public class CalendarTest {
     public static void main(String[] args) {
         System.out.println(getSpecifiedDayAfter("18-10-01"));
         System.out.println(getDateArray("20181001", "20181111 "));
+
+        System.out.println("test---2---");
+        String dateStr = new SimpleDateFormat("yyyyMMdd").format(new Date(1530793098317L));
+        System.out.println(dateStr);
     }
 
 
