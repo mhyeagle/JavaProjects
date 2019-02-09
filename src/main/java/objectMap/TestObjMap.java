@@ -22,7 +22,13 @@ public class TestObjMap {
             e.printStackTrace();
         }
 
-        Map<?,?> map2 = ObjectMap.objectToMap(creativeInfoPO);
-        System.out.println(map2.toString());
+        System.out.println("***2***");
+        Map<String, String> map2 = (Map<String, String>) ObjectMap.objectToMap(creativeInfoPO);
+        for (Map.Entry<String, String> entry : map2.entrySet()) {
+            if (entry.getValue() != null) {
+                System.out.println("key= " + entry.getKey());
+                System.out.println("                value= " + entry.getValue());
+            }
+        }
     }
 }

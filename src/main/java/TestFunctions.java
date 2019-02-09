@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -29,5 +30,22 @@ public class TestFunctions {
         list4 = new ArrayList<Long>();
         list4.add(2L);
         System.out.println("list5" + list5.toString());
+
+        //***3***
+        System.out.println("***3***");
+        str = "123";
+        String[] words = str.split("123");
+        for (String word: words) {
+            System.out.println(word);
+        }
+        System.out.println("words length: " + words.length);
+
+        //***4***
+        System.out.println("***4***");
+        LinkedList<String> llist = new LinkedList<>();
+        llist.add("1");
+        llist.add("2");
+        llist.add("3");
+        System.out.println(llist.toString());
     }
 }

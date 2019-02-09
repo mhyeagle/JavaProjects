@@ -5,7 +5,7 @@ public class CreativeInfoPO {
     private int creativeId;
     private String dt;
     private String hour;
-    private int impNum;
+    private Integer impNum;
 
     @Override
     public String toString() {
@@ -46,11 +46,11 @@ public class CreativeInfoPO {
         this.hour = hour;
     }
 
-    public int getImpNum() {
+    public Integer getImpNum() {
         return impNum;
     }
 
-    public void setImpNum(int impNum) {
+    public void setImpNum(Integer impNum) {
         this.impNum = impNum;
     }
 }

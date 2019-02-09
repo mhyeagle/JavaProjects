@@ -1,3 +1,4 @@
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -6,13 +7,21 @@ import java.util.Date;
 import java.util.List;
 
 public class CalendarTest {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         System.out.println(getSpecifiedDayAfter("18-10-01"));
         System.out.println(getDateArray("20181001", "20181111 "));
 
         System.out.println("test---2---");
         String dateStr = new SimpleDateFormat("yyyyMMdd").format(new Date(1530793098317L));
         System.out.println(dateStr);
+
+        System.out.println("test---3---");
+        dateStr = convertDate(1548870840);
+        System.out.println(dateStr);
+
+        System.out.println("test---4---");
+        Date epoch = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").parse("01/31/2019 14:00:00");
+        System.out.println(epoch.getTime());
     }
 
 
@@ -104,5 +113,11 @@ public class CalendarTest {
         c.setTime(date);
         String formatDay=new SimpleDateFormat("yyyyMMdd").format(c.getTime());
         return formatDay;
+    }
+
+    public static String convertDate(Integer ctime) {
+        DateFormat bsjFormatOfDay = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date = new Date(ctime * 1000L);
+        return bsjFormatOfDay.format(date);
     }
 }
