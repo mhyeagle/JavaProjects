@@ -23,4 +23,5 @@
     </bean>
     <bean id="multiThreadProcessService" class="springTest.MultiThreadProcessService"/>
 
+    <bean id="junitFunction" class="JunitFunction"/>
 </beans>

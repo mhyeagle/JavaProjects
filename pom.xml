@@ -8,22 +8,27 @@
     <artifactId>JavaTests</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <java-version>1.8</java-version>
+        <spring-version>4.0.7.RELEASE</spring-version>
+    </properties>
+
     <dependencies>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>5.0.6.RELEASE</version>
+            <version>${spring-version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
-            <version>5.0.6.RELEASE</version>
+            <version>${spring-version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
-            <version>5.0.6.RELEASE</version>
+            <version>${spring-version}</version>
         </dependency>
 
 
@@ -101,6 +106,47 @@
             <version>18.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring-version}</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>${java-version}</source>
+                    <target>${java-version}</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.21.0</version>
+                <configuration>
+                    <!-- 是否跳过测试 -->
+                    <skipTests>false</skipTests>
+                    <!-- 排除测试类 -->
+                    <excludes>
+                        <exclude>**/Base*</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
