@@ -1,11 +1,23 @@
 package objectMap;
 
+import java.util.List;
+
 public class CreativeInfoPO {
     //key
     private int creativeId;
     private String dt;
     private String hour;
     private Integer impNum;
+
+    public List<Long> getPoiIdList() {
+        return poiIdList;
+    }
+
+    public void setPoiIdList(List<Long> poiIdList) {
+        this.poiIdList = poiIdList;
+    }
+
+    private List<Long> poiIdList;
 
     @Override
     public String toString() {
