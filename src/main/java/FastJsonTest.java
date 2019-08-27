@@ -1,6 +1,10 @@
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.TypeReference;
+import com.alibaba.fastjson.annotation.JSONCreator;
+import com.alibaba.fastjson.annotation.JSONField;
+import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +55,15 @@ public class FastJsonTest {
         arr.add("path3");
         JSONObject result3 = insertElement(arr, "abc");
         System.out.println("result3:" + result3.toJSONString());
+
+        System.out.println("------4-----");
+        JsonFieldName jsonFieldName = new JsonFieldName("jiannan_road");
+        String jsonFieldStr = JSONObject.toJSONString(jsonFieldName);
+        System.out.println("result4:" + jsonFieldStr);
+        JsonFieldName jsonFieldName2 = JSONObject.parseObject(jsonFieldStr, JsonFieldName.class);
+        //JSONObject.parseObject(jsonFieldStr, new TypeReference<Map<String, Integer>>(){});
+        //JsonFieldName jsonFieldName2 = JSONObject.toJavaObject(JSONObject.parseObject(jsonFieldStr), JsonFieldName.class);
+        System.out.println("result4-2:" + jsonFieldName2.toString());
     }
 
 
@@ -67,5 +80,16 @@ public class FastJsonTest {
         element.put(label, 0);
 
         return result;
+    }
+
+    @Data
+    public static class JsonFieldName {
+        @JSONField(name = "master_road")
+        private String masterRoad;
+
+        @JSONCreator
+        public JsonFieldName(String name) {
+            masterRoad = name;
+        }
     }
 }
