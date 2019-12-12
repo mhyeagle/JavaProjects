@@ -1,4 +1,4 @@
-package ES;
+package ES.Lucene;
 
 import org.apache.commons.lang.StringUtils;
 
