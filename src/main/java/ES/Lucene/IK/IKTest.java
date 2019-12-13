@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.StringReader;
 
 public class IKTest {
+    // 在扩展词词典中添加"正兴公路局"
     private static String str1 = "正兴公路局正在治理解放大道路面积水问题。";
     private static String str2 = "IKAnalyzer 是一个开源的，基于 java 语言开发的轻量级的中文分词工具包。";
 
