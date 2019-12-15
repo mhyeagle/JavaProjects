@@ -10,7 +10,7 @@ import org.apache.lucene.index.Term;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -76,30 +76,41 @@ public class CreateIndex {
             contentType.setStoreTermVectorOffsets(true);
             contentType.setStoreTermVectorPayloads(true);
 
-            Document doc1 = new Document();
-            doc1.add(new Field("id", String.valueOf(news1.getId()), idType));
-            doc1.add(new Field("title", news1.getTitle(), titleType));
-            doc1.add(new Field("content", news1.getContent(), contentType));
-            doc1.add(new IntPoint("reply", news1.getReply()));
-            doc1.add(new StoredField("reply_display", news1.getReply()));
+//            Document doc1 = new Document();
+//            doc1.add(new Field("id", String.valueOf(news1.getId()), idType));
+//            doc1.add(new Field("title", news1.getTitle(), titleType));
+//            doc1.add(new Field("content", news1.getContent(), contentType));
+//            doc1.add(new IntPoint("reply", news1.getReply()));
+//            doc1.add(new StoredField("reply_display", news1.getReply()));
+//
+//            Document doc2 = new Document();
+//            doc2.add(new Field("id", String.valueOf(news2.getId()), idType));
+//            doc2.add(new Field("title", news2.getTitle(), titleType));
+//            doc2.add(new Field("content", news2.getContent(), contentType));
+//            doc2.add(new IntPoint("reply", news2.getReply()));
+//            doc2.add(new StoredField("reply_disply", news2.getReply()));
+//
+//            Document doc3 = new Document();
+//            doc3.add(new Field("id", String.valueOf(news3.getId()), idType));
+//            doc3.add(new Field("title", news3.getTitle(), titleType));
+//            doc3.add(new Field("content", news3.getContent(), contentType));
+//            doc3.add(new IntPoint("reply", news3.getReply()));
+//            doc3.add(new StoredField("reply_disply", news3.getReply()));
+//
+//            indexWriter.addDocument(doc1);
+//            indexWriter.addDocument(doc2);
+//            indexWriter.addDocument(doc3);
 
-            Document doc2 = new Document();
-            doc2.add(new Field("id", String.valueOf(news2.getId()), idType));
-            doc2.add(new Field("title", news2.getTitle(), titleType));
-            doc2.add(new Field("content", news2.getContent(), contentType));
-            doc2.add(new IntPoint("reply", news2.getReply()));
-            doc2.add(new StoredField("reply_disply", news2.getReply()));
+            String newsFilePath = "/Users/miaohongyuan/IdeaProjects/JavaProjects/src/main/resources/testfile/news.txt";
+            File newsFile = new File(newsFilePath);
+            String newsContent = textToString(newsFile);
+            Document docNews = new Document();
+            docNews.add(new Field("id", String.valueOf(4), idType));
+            docNews.add(new Field("title", "李开复: 无人驾驶进入黄金时代", titleType));
+            docNews.add(new Field("content", newsContent, contentType));
+            docNews.add(new IntPoint("reply", 1024));
+            indexWriter.addDocument(docNews);
 
-            Document doc3 = new Document();
-            doc3.add(new Field("id", String.valueOf(news3.getId()), idType));
-            doc3.add(new Field("title", news3.getTitle(), titleType));
-            doc3.add(new Field("content", news3.getContent(), contentType));
-            doc3.add(new IntPoint("reply", news3.getReply()));
-            doc3.add(new StoredField("reply_disply", news3.getReply()));
-
-            indexWriter.addDocument(doc1);
-            indexWriter.addDocument(doc2);
-            indexWriter.addDocument(doc3);
             indexWriter.commit();
             indexWriter.close();
             directory.close();
@@ -109,6 +120,25 @@ public class CreateIndex {
 
         Date end = new Date();
         System.out.println("索引文档用时：" + (end.getTime() - start.getTime()) + " milliseconds");
+    }
+
+    public static String textToString(File file) {
+        StringBuilder result = new StringBuilder();
+        try {
+            // 构造一个BufferReader类来读取文件
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String str = null;
+            // 使用readLine方法，一次读一行
+            while ((str = br.readLine()) != null) {
+                result.append(System.lineSeparator() + str);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return result.toString();
     }
 
     public static void deleteDoc(String field, String key) {
