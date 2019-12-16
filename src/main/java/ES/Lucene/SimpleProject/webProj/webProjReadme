@@ -1,0 +1,19 @@
+添加jetty到项目中的方法
+
+1：添加依赖
+        <dependency>
+            <groupId>org.eclipse.jetty.aggregate</groupId>
+            <artifactId>jetty-all</artifactId>
+            <version>8.2.0.v20160908</version>
+        </dependency>
+
+2：添加启动函数
+        Server server = new Server(8080);
+        server.setHandler(new HttpHandler(applicationContext));
+        server.start();
+
+3：实现http接口
+public class HttpHandler extends AbstractHandler
+包含applicationContext，用于调用方法
+例如：
+Map<String, List<PoiAdTag>> result =  applicationContext.getBean(CpsPoiCacheInfo.class).searchCachePoiTags(poiIds);
