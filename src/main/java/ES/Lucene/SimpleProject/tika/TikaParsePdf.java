@@ -1,4 +1,4 @@
-package ES.Lucene.SimpleProject;
+package ES.Lucene.SimpleProject.tika;
 
 import org.apache.tika.exception.TikaException;
 import org.apache.tika.metadata.Metadata;
