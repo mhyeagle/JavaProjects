@@ -28,5 +28,7 @@ public class TestClient {
 
         GetResponse response = restHighLevelClient.get(request, RequestOptions.DEFAULT);
         System.out.println("response:" + response.getSourceAsString());
+
+        restHighLevelClient.close();
     }
 }
