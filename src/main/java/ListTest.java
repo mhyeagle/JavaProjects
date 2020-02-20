@@ -14,6 +14,14 @@ public class ListTest {
         words.add("b");
         words.add("c");
 
+        for (String s : words) {
+            if (s.equals("b")) {
+                words.remove(s);
+                continue;
+            }
+            System.out.println(s);
+        }
+
         Iterator it = words.iterator();
 
 //        int num = 0;
