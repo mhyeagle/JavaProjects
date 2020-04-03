@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class StreamTest {
@@ -15,5 +12,20 @@ public class StreamTest {
                 .collect(Collectors.toMap(String::toString, key->prefix+key));
 
         System.out.println(result);
+
+        Map<String, String> tmp = new HashMap<>();
+        result.entrySet().stream()
+                .filter(Objects::nonNull)
+                .forEach(
+                        s -> {
+                            String value = s.getValue();
+                            tmp.put(s.getKey(), value);
+                            value += "_suffix";
+                            s.setValue(value);
+                        }
+                );
+
+        System.out.println("tmp: " + tmp);
+        System.out.println("origin result: " + result);
     }
 }

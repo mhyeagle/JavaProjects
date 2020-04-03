@@ -4,7 +4,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 public class EncryptTest {
 
     public static void main(String[] args) {
-        String appKey = "com.sankuai.waimai.c.marketingprecuser";
+        String appKey = "com.sankuai.waimai.c.marketingdatasync";
 
         System.out.print(appKeySecret(appKey));
     }
