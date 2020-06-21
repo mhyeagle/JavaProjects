@@ -1,3 +1,4 @@
+import com.dianping.pigeon.remoting.common.codec.json.JacksonUtils;
 import com.sankuai.meituan.waimai.feature.rankdata.thrift.vo.RankDataQueryItem;
 import objectMap.CreativeInfoPO;
 import org.apache.thrift.TBase;
@@ -22,6 +23,8 @@ public class JacksonTest {
         List<Long> docIdList = new ArrayList<>();
         docIdList.add(10216273L);
         rankDataQueryItem.setDocIdList(docIdList);
+        List<Integer> instIds = new ArrayList<>();
+        instIds.add(10433245);
 
 //        try {
 //            String json = mapper.writeValueAsString(creativeInfoPO);
@@ -31,12 +34,29 @@ public class JacksonTest {
 //            e.printStackTrace();
 //        }
 
-        TSerializer serializer = new TSerializer(new TSimpleJSONProtocol.Factory());
-        try {
-            String json = serializer.toString(rankDataQueryItem);
-            System.out.println(json);
-        } catch (TException e) {
-            e.printStackTrace();
-        }
+        String serStr = JacksonUtils.serialize(instIds);
+        System.out.println(serStr);
+
+
+//        TSerializer serializer = new TSerializer(new TSimpleJSONProtocol.Factory());
+//        try {
+//
+//            String json = serializer.toString(rankDataQueryItem);
+//            System.out.println(json);
+//        } catch (TException e) {
+//            e.printStackTrace();
+//        }
+
+        List<Integer> docIds = new ArrayList<>();
+        docIds.add(7382);
+        docIds.add(7609);
+        String creator = "miaohongyuan";
+        String idsStr = JacksonUtils.serialize(docIds);
+
+        Integer id1 = 7609;
+
+        System.out.println("ids:" + idsStr);
+        System.out.println("creator:" + JacksonUtils.serialize(creator));
+        System.out.print("int id1:" + JacksonUtils.serialize(id1));
     }
 }
