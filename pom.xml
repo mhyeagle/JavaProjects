@@ -114,6 +114,18 @@
         </dependency>
 
         <dependency>
+            <groupId>com.sankuai.meituan.waimai.d.profile</groupId>
+            <artifactId>waimai_d_profile_ups_client</artifactId>
+            <version>1.5.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sankuai.waimai</groupId>
+            <artifactId>bitcube-query-client</artifactId>
+            <version>1.1.0.15</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.elasticsearch.client</groupId>
             <artifactId>elasticsearch-rest-high-level-client</artifactId>
             <version>7.1.0</version>
@@ -241,6 +253,12 @@
             <groupId>com.sankuai.meituan.waimai.thrift.feature</groupId>
             <artifactId>waimai_data_feature_service_client</artifactId>
             <version>1.3.8</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sankuai.meituan.waimai.thrift.feature</groupId>
+            <artifactId>waimai_d_profile_utvs_client</artifactId>
+            <version>0.1.16-SNAPSHOT</version>
         </dependency>
 
         <dependency>

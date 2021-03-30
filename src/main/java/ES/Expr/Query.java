@@ -1,5 +1,6 @@
 package ES.Expr;
 
+import com.alibaba.fastjson.JSONObject;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -215,7 +216,9 @@ public class Query implements AbstractQuery {
         queryE.setShouldList(shouldList1);
 
         String searchStr = query.serializable();
+
         System.out.println("searchStr:" + searchStr);
 
+        System.out.println("search: " + JSONObject.toJSONString(searchStr, true));
     }
 }

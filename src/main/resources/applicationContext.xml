@@ -9,6 +9,26 @@
     <context:component-scan base-package="java"/>
 
     <import resource="classpath*:waimai_data_feature_service_client.xml"/>
+<!--    <import resource="classpath*:waimai_d_profile_ups_client.xml"/>-->
+
+    <bean id="upsThriftPoolConfig" class="com.meituan.service.mobile.mtthrift.client.pool.MTThriftPoolConfig">
+        <property name="maxActive" value="${upsService.maxActive:100}"/>
+        <property name="maxIdle" value="${upsService.maxIdle:20}"/>
+        <property name="minIdle" value="${upsService.minIdle:1}"/>
+        <property name="maxWait" value="${upsService.maxWait:3000}"/>
+        <property name="testOnBorrow" value="true"/>
+        <property name="testOnReturn" value="false"/>
+        <property name="testWhileIdle" value="false"/>
+    </bean>
+    <bean id="portraitService" class="com.meituan.service.mobile.mtthrift.proxy.ThriftClientProxy" destroy-method="destroy">
+        <property name="mtThriftPoolConfig" ref="upsThriftPoolConfig"/>
+        <property name="remoteServerPort" value="9001"/>
+        <property name="appKey" value="testThrift.mhy"/>
+        <property name="remoteAppkey" value="com.sankuai.profile.upsservice"/>
+        <property name="localServerPort" value="1"/>
+        <property name="timeout" value="${upsService.so.timeout:2000}"/>
+        <property name="serviceInterface" value="com.sankuai.meituan.waimai.d.profile.ups.service.PortraitService"/>
+    </bean>
 
     <bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
         <property name="corePoolSize" value="5"/>

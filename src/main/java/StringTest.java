@@ -8,6 +8,10 @@ public class StringTest {
         String[] whitesWords = whiteList.split(",");
 
         splitWords(sourceWord, whitesWords);
+
+        String str = "a     b,c\t\n";
+        String strReplace = str.replaceAll("[\\s,]", "");
+        System.out.println("str result:" + strReplace);
     }
 
     private static List<String> splitWords(String word, String[] whites) {
