@@ -72,7 +72,7 @@ public class JacksonTest {
 
         PortraitOneDocReq docReq = new PortraitOneDocReq();
         docReq.setDimId(1);
-        docReq.setDocIds(Lists.newArrayList(4663, 4664));
+        docReq.setDocIds(Lists.newArrayList(11539));
         docReq.setKey("55341");
 
         System.out.println("docReq:" + JacksonUtils.serialize(docReq));
@@ -115,7 +115,7 @@ public class JacksonTest {
 
         com.sankuai.meituan.waimai.d.profile.feature.utvs.req.PreviewReq previewReq1 = new com.sankuai.meituan.waimai.d.profile.feature.utvs.req.PreviewReq();
         previewReq1.setDimId(7);
-        previewReq1.setIndexDate("20210326");
+        previewReq1.setIndexDate("20210328");
         previewReq1.setSearchSource("{\"type\":\"and\",\"config\":{\"conditions\":[{\"type\":\"in\",\"config\":{\"field\":\"predict_gender\",\"values\":[\"0\"]}}]}}");
         System.out.println("previewReq1:" + JacksonUtils.serialize(previewReq1));
     }
