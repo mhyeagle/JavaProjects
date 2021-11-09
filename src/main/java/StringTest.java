@@ -12,6 +12,10 @@ public class StringTest {
         String str = "a     b,c\t\n";
         String strReplace = str.replaceAll("[\\s,]", "");
         System.out.println("str result:" + strReplace);
+
+        String blankStr = " a bc ";
+        System.out.println("-" + blankStr + "-");
+        System.out.println("trim-" + blankStr.trim() + "-");
     }
 
     private static List<String> splitWords(String word, String[] whites) {
