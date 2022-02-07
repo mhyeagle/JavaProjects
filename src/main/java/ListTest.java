@@ -59,5 +59,16 @@ public class ListTest {
         String[] arrStr = splitedStr.split(",");
         List<String> li = Arrays.asList(arrStr);
 
+        // List<Long> contains
+        List<Long> listLongs = new ArrayList<>();
+        listLongs.add(1L);
+        listLongs.add(10000L);
+        Long containId = 10000L;
+        if (listLongs.contains(containId)) {
+            System.out.println("ListLongs contains");
+        } else {
+            System.out.println("ListLongs not contains Long");
+        }
+
     }
 }
