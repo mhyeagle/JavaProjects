@@ -276,6 +276,11 @@
             <artifactId>lucene-core</artifactId>
             <version>8.3.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.antlr</groupId>
+            <artifactId>antlr4-runtime</artifactId>
+            <version>4.7.1</version>
+        </dependency>
 
     </dependencies>
 
