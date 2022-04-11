@@ -1,7 +1,7 @@
 package parallel;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
-import io.netty.util.internal.ConcurrentSet;
+import org.eclipse.jetty.util.ConcurrentHashSet;
 
 import java.util.Set;
 import java.util.concurrent.*;
@@ -16,7 +16,7 @@ public class CompletableFutureTest {
             TimeUnit.MINUTES, new LinkedBlockingDeque<>(1024), namedThreadFactory);
 
     public static void main(String[] args) {
-        Set<String> tmpSet = new ConcurrentSet<>();
+        Set<String> tmpSet = new ConcurrentHashSet<>();
         final String mainStr = "mainStr";
 
         CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
